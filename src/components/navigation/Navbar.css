@@ -1,0 +1,55 @@
+.nav {
+  border: none;
+  background: transparent;
+  height: 14rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+}
+.nav img {
+  width: 12rem;
+  height: 12rem;
+  filter: drop-shadow(0px 0px 6px rgba(0, 0, 0)) invert(100%) opacity(20%);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 1;
+}
+.nav header section h1,
+.nav header section p,
+.nav a {
+  margin: 0;
+  padding: 0;
+  z-index: 2;
+  text-transform: uppercase;
+  color: white;
+  text-decoration: none;
+  text-shadow: 0 0px 6px rgb(255, 255, 255, 0.2);
+  font-family: "Bauhaus 93";
+  letter-spacing: 0.25rem;
+}
+
+.nav header section p {
+  font-size: 0.8rem;
+  font-weight: normal;
+  text-align: center;
+  width: 100%;
+}
+
+.nav header section h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+.database-label {
+  margin-left: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  background-color: #07c9ff;
+  padding: 5px 10px;
+  border-radius: 8px;
+  display: none;
+}

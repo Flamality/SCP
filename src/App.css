@@ -1,0 +1,40 @@
+:root {
+  /*Main color pallet*/
+  --background: #21252e;
+  --header: #ffffff;
+  --text: #d8d8d8;
+  --primary: #ff5733;
+  --secondary: #ffc300;
+  --error: #ff4c4c;
+  --warning: #ff8c00;
+  --success: #28a745;
+  --info: #17a2b8;
+  --link: #1e90ff;
+  /*Wanderers Library*/
+  --library-gold: rgb(255, 219, 90);
+  /*International Translation Archive*/
+}
+@font-face {
+  font-family: "Bauhaus 93";
+  src: url("fonts/Bauhaus\ 93\ Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background-color: var(--background);
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--header);
+}

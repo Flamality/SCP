@@ -1,0 +1,68 @@
+#series-cards {
+  display: grid;
+  gap: 20px;
+  padding: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.series-card-link {
+  text-decoration: none;
+}
+
+.series-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #1f1f1f; /* Dark mode background */
+  color: #e1e1e1; /* Light text for contrast */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  overflow: hidden;
+}
+
+.series-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.series-card-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.series-card-roman-numeral {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #5bc0ff; /* Bright blue for visibility */
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+}
+
+.series-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.series-card-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #e1e1e1;
+  text-transform: uppercase;
+}
+
+.series-card-description {
+  font-size: 1rem;
+  color: #bbb;
+  opacity: 0.8;
+  font-style: italic;
+}
+
+.series-card-link:hover .series-card {
+  border-color: #5bc0ff;
+}
