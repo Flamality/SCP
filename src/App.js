@@ -20,6 +20,7 @@ function App() {
           <Route path="/series" element={<Series />} />
           <Route path="/series/:series" element={<Series />} />
           <Route path="/scp/:scp" element={<SCP />} />
+          <Route path="/scp-:scp" element={<SCP />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Router>

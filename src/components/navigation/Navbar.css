@@ -53,3 +53,15 @@
   border-radius: 8px;
   display: none;
 }
+
+.doc-nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  list-style-type: none;
+}
+
+.doc-nav ul li {
+  margin-right: 10px;
+}

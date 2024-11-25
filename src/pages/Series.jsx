@@ -15,6 +15,9 @@ export default function Series() {
       .then((data) => setSCPData(data))
       .catch((error) => console.error("Error:", error));
   }, [selectedSeries]);
+  useEffect(() => {
+    document.title = `Series - ${selectedSeries}`;
+  }, []);
   return (
     <div className="seriesPage">
       <Navbar />

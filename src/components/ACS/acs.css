@@ -100,6 +100,7 @@
 }
 .info {
   display: flex;
+  flex-direction: row;
   align-items: end;
   align-items: baseline;
 }
