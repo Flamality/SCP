@@ -5,7 +5,7 @@ import SeriesCard from "../components/cards/series/SeriesCard";
 
 export default function Home() {
   return (
-    <div>
+    <div className="homePage">
       <Navbar />
       <HomeWarning />
       <div id="series-cards">
@@ -13,6 +13,12 @@ export default function Home() {
         <SeriesCard series={2} />
         <SeriesCard series={3} />
         <SeriesCard series={4} />
+        <SeriesCard series={5} />
+        <SeriesCard series={6} />
+        <SeriesCard series={7} />
+        <SeriesCard series={8} />
+        <SeriesCard series={9.0} />
+        <SeriesCard series={9.5} />
       </div>
     </div>
   );

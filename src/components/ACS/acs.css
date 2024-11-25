@@ -1,0 +1,464 @@
+:root {
+  /*Colors*/
+  --red: rgb(196, 2, 51);
+  --orange: rgb(255, 109, 0);
+  --yellow: rgb(255, 228, 93);
+  --green: rgb(0, 159, 107);
+  --blue: rgb(0, 135, 189);
+  --purple: rgb(130, 13, 255);
+  --black: rgb(0, 0, 0);
+  --white: rgb(255, 255, 255);
+
+  /*Transparent Colors*/
+  --tr-red: rgb(196, 2, 51, 0.2);
+  --tr-orange: rgb(255, 109, 0, 0.2);
+  --tr-yellow: rgb(255, 211, 0, 0.2);
+  --tr-green: rgb(0, 159, 107, 0.2);
+  --tr-blue: rgb(0, 135, 189, 0.2);
+  --tr-purple: rgb(130, 13, 255, 0.2);
+  --tr-black: rgb(0, 0, 0, 0.2);
+  --tr-white: rgb(255, 255, 255, 0.2);
+
+  /* Light Colors */
+  --light-red: rgb(255, 166, 188);
+  --light-orange: rgb(255, 160, 137);
+  --light-yellow: rgb(255, 245, 199);
+  --light-green: rgb(160, 218, 194);
+  --light-blue: rgb(173, 206, 238);
+  --light-purple: rgb(188, 162, 255);
+  --light-black: rgb(128, 128, 128); /* Light Black (Gray) */
+  --light-white: rgb(230, 230, 230); /* Light White */
+
+  /*Containment Classes*/
+  --safe: var(--green);
+  --euclid: var(--yellow);
+  --keter: var(--red);
+  --neutralized: var(--white);
+  --pending: var(--black);
+  --explained: var(--white);
+  --esoteric: var(--purple);
+
+  /*Disruption Classes*/
+  --dark: var(--green);
+  --vlam: var(--blue);
+  --keneq: var(--yellow);
+  --ekhi: var(--orange);
+  --amida: var(--red);
+
+  /*Risk Classes*/
+  --notice: var(--green);
+  --caution: var(--blue);
+  --warning: var(--yellow);
+  --danger: var(--orange);
+  --critical: var(--red);
+
+  /*Clearance Levels*/
+  --l1: var(--green);
+  --l2: var(--blue);
+  --l3: var(--yellow);
+  --l4: var(--orange);
+  --l5: var(--red);
+  --l6: var(--black);
+
+  /*other*/
+  --secondary: #dcdcdc;
+  --unknown: var(--white);
+  --blocked: var(--white);
+
+  /*TRANSPARENT COLORS*/
+  /*Containment Classes*/
+  --tr-safe: var(--tr-green);
+  --tr-euclid: var(--tr-yellow);
+  --tr-keter: var(--tr-red);
+  --tr-neutralized: var(--tr-white);
+  --tr-pending: var(--tr-black);
+  --tr-explained: var(--tr-white);
+  --tr-esoteric: var(--tr-purple);
+
+  /*Disruption Classes*/
+  --tr-dark: var(--tr-green);
+  --tr-vlam: var(--tr-blue);
+  --tr-keneq: var(--tr-yellow);
+  --tr-ekhi: var(--tr-orange);
+  --tr-amida: var(--tr-red);
+
+  /*Risk Classes*/
+  --tr-notice: var(--tr-green);
+  --tr-caution: var(--tr-blue);
+  --tr-warning: var(--tr-yellow);
+  --tr-danger: var(--tr-orange);
+  --tr-critical: var(--tr-red);
+
+  /*other*/
+  --tr-secondary: #dcdcdc30;
+  --tr-blocked: var(--tr-white);
+  --tr-unknown: var(--tr-white);
+}
+#acs {
+  margin: 50px 100px 10px 100px;
+  color: var(--header);
+}
+.info {
+  display: flex;
+  align-items: end;
+  align-items: baseline;
+}
+.top-box {
+  display: flex;
+  width: 100%;
+  font-weight: 600;
+  text-transform: uppercase;
+  align-items: end;
+  max-width: unset;
+  font-kerning: auto;
+}
+.clearance {
+  display: flex;
+  align-items: end;
+  margin: 0;
+}
+#clearance {
+  margin: 0;
+  margin-right: 0.6rem;
+  align-self: baseline;
+  opacity: 0;
+  transform: translateY(1rem);
+  animation: rize 1s ease 400ms forwards;
+}
+#clearance-label {
+  margin: 0;
+  align-self: baseline;
+  opacity: 0;
+  transform: translateY(1rem);
+  animation: rize 1s ease 800ms forwards;
+}
+.scpSubtext {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #979797;
+  margin: 0;
+  align-self: baseline;
+  opacity: 0;
+  transform: translateY(1rem);
+  animation: rize 1s ease 400ms forwards;
+}
+#number {
+  margin: 0 2px;
+  font-size: 2.5rem;
+  align-self: baseline;
+  opacity: 0;
+  transform: translateY(1rem);
+  animation: rize 1s ease 200ms forwards;
+}
+
+.bars {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  flex-grow: 1;
+  margin: 0 1rem;
+  box-sizing: border-box;
+  padding: 0;
+}
+.bar {
+  height: 0.5rem;
+  width: 0%;
+  margin: 0.125rem;
+  transition: width 1s ease;
+}
+
+.class {
+  width: initial;
+  display: flex;
+  margin-top: 6px;
+}
+.classes {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 6px;
+  grid-template-areas:
+    "containment disruption"
+    "secondary risk";
+}
+
+.containment-class {
+  grid-area: containment;
+  width: 0;
+  animation: grow 1s ease 100ms forwards;
+}
+.secondary-class {
+  grid-area: secondary;
+  opacity: 0;
+  transform: translateY(1rem);
+  animation: rize 1s ease 200ms forwards;
+}
+.disruption {
+  opacity: 0;
+  transform: translateY(1rem);
+  animation: rize 1s ease 400ms forwards;
+}
+.risk {
+  opacity: 0;
+  transform: translateY(1rem);
+  animation: rize 1s ease 600ms forwards;
+}
+.containment-class .class-header {
+  width: 0;
+  margin-right: 15px;
+  animation: headerGrow 0.8s ease 200ms forwards;
+}
+.containment-class .class-content .title {
+  opacity: 0;
+  transform: translateY(1rem);
+  white-space: nowrap;
+  overflow: hidden;
+  animation: rize 1s ease 100ms forwards;
+}
+.containment-class .class-content .desc-container .desc {
+  opacity: 0;
+  transform: translateY(1rem);
+  white-space: nowrap;
+  overflow: hidden;
+  animation: rize 1s ease 200ms forwards;
+}
+.containment-class .class-content .desc-container .icon-container {
+  opacity: 0;
+  animation: fade 1s ease 200ms forwards;
+}
+
+.class-header {
+  width: 15px;
+  height: initial;
+  background-color: #000;
+}
+
+.title {
+  margin: 0;
+  font-size: 1rem;
+}
+.desc {
+  margin: 0;
+  font-size: 1.5rem;
+  margin-right: 15px;
+}
+.class-content {
+  width: 100%;
+  margin: 10px;
+}
+.desc-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0px;
+}
+.icon-container {
+  border: 0.2rem solid #000;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  padding: 1px;
+}
+.icon-container img {
+  max-width: 100%;
+  width: 2rem;
+  height: 2rem;
+  border-width: inherit;
+  vertical-align: middle;
+}
+.thickhr {
+  border: none;
+  border-bottom: 0.5rem solid #fff;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  margin: 0;
+  width: 0%;
+  animation: grow 1s cubic-bezier(0.66, 0.19, 0, 0.99) 800ms forwards;
+  box-sizing: border-box;
+}
+
+/* Animations */
+.barAnim {
+  width: 100%;
+}
+.classAnim {
+  width: 100%;
+}
+
+@keyframes grow {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes rize {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes headerGrow {
+  from {
+    width: 0;
+    margin-right: 15px;
+  }
+  to {
+    width: 15px;
+    margin-right: 0px;
+  }
+}
+
+@media (max-width: 768px) {
+  #acs {
+    margin: 50px 10px 10px 10px;
+  }
+  .bars {
+    margin: 0;
+    flex-direction: row;
+  }
+  .classes {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "containment"
+      "secondary"
+      "risk"
+      "disruption";
+  }
+  .top-box {
+    display: grid;
+  }
+}
+
+/* SET COLORS */
+.safe {
+  background-color: var(--safe);
+}
+.euclid {
+  background-color: var(--euclid);
+}
+.keter {
+  background-color: var(--keter);
+}
+.pending {
+  background-color: var(--pending);
+}
+.neutralized {
+  background-color: var(--neutralized);
+}
+.explained {
+  background-color: var(--explained);
+}
+.esoteric {
+  background-color: var(--esoteric);
+}
+.secondary {
+  background-color: var(--secondary);
+}
+.dark {
+  background-color: var(--dark);
+}
+.vlam {
+  background-color: var(--vlam);
+}
+.keneq {
+  background-color: var(--keneq);
+}
+.ekhi {
+  background-color: var(--ekhi);
+}
+.amida {
+  background-color: var(--amida);
+}
+.notice {
+  background-color: var(--notice);
+}
+.caution {
+  background-color: var(--caution);
+}
+.warning {
+  background-color: var(--warning);
+}
+.danger {
+  background-color: var(--danger);
+}
+.critical {
+  background-color: var(--critical);
+}
+.unknown {
+  background-color: var(--unknown);
+}
+.blocked {
+  background-color: var(--blocked);
+}
+.l1 {
+  color: var(--l1);
+}
+.l2 {
+  color: var(--l2);
+}
+.l3 {
+  color: var(--l3);
+}
+.l4 {
+  color: var(--l4);
+}
+.l5 {
+  color: var(--l5);
+}
+.l6 {
+  color: var(--l6);
+}
+.light-red {
+  color: var(--light-red);
+}
+.light-orange {
+  color: var(--light-orange);
+}
+.light-yellow {
+  color: var(--light-yellow);
+}
+.light-green {
+  color: var(--light-green);
+}
+.light-blue {
+  color: var(--light-blue);
+}
+.light-purple {
+  color: var(--light-purple);
+}
+.light-black {
+  color: var(--light-black);
+}
+.light-white {
+  color: var(--light-white);
+}
+
+.none {
+  display: none;
+}
+.acs-classes {
+  display: block;
+  background-color: transparent;
+}

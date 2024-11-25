@@ -8,6 +8,8 @@ import {
 } from "react-router-dom";
 
 import Home from "./pages/Home";
+import Series from "./pages/Series";
+import SCP from "./pages/SCP";
 
 function App() {
   return (
@@ -15,6 +17,9 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/series" element={<Series />} />
+          <Route path="/series/:series" element={<Series />} />
+          <Route path="/scp/:scp" element={<SCP />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Router>

@@ -1,6 +1,13 @@
 import React from "react";
-
-export default function ACS() {
+import "./acs.css";
+export default function ACS({
+  SCP,
+  clearance,
+  containmentClass,
+  secondaryClass,
+  disruptionClass,
+  riskClass,
+}) {
   return (
     <div id="acs">
       <div class="top-box">
@@ -9,16 +16,75 @@ export default function ACS() {
           <h1 id="number"></h1>
         </div>
         <div class="bars">
-          <div id="bar1" class="bar"></div>
-          <div id="bar2" class="bar"></div>
-          <div id="bar3" class="bar"></div>
-          <div id="bar4" class="bar"></div>
-          <div id="bar5" class="bar"></div>
-          <div id="bar6" class="bar"></div>
+          <div
+            id="bar1"
+            style={
+              clearance > 0
+                ? { display: "block", backgroundColor: `var(--l${clearance})` }
+                : { display: "none" }
+            }
+            class="bar"
+          ></div>
+          <div
+            id="bar2"
+            tyle={
+              clearance > 1
+                ? { display: "block", backgroundColor: `var(--l${clearance})` }
+                : { display: "none" }
+            }
+            class="bar"
+          ></div>
+          <div
+            id="bar3"
+            tyle={
+              clearance > 2
+                ? { display: "block", backgroundColor: `var(--l${clearance})` }
+                : { display: "none" }
+            }
+            class="bar"
+          ></div>
+          <div
+            id="bar4"
+            tyle={
+              clearance > 3
+                ? { display: "block", backgroundColor: `var(--l${clearance})` }
+                : { display: "none" }
+            }
+            class="bar"
+          ></div>
+          <div
+            id="bar5"
+            tyle={
+              clearance > 4
+                ? { display: "block", backgroundColor: `var(--l${clearance})` }
+                : { display: "none" }
+            }
+            class="bar"
+          ></div>
+          <div
+            id="bar6"
+            tyle={
+              clearance > 5
+                ? { display: "block", backgroundColor: `var(--l${clearance})` }
+                : { display: "none" }
+            }
+            class="bar"
+          ></div>
         </div>
         <div class="clearance">
-          <h1 id="clearance">Level # Clearance</h1>
-          <h2 id="clearance-label">-</h2>
+          <h1
+            id="clearance"
+            style={(clearance = "none" ? { display: "none" } : {})}
+          >
+            Level {clearance}
+          </h1>
+          <h2
+            id="clearance-label"
+            style={(clearance = "none" ? { display: "none" } : {})}
+            className={`l${clearance}`}
+          >
+            -
+          </h2>
         </div>
       </div>
       <hr class="thickhr" />
@@ -29,7 +95,7 @@ export default function ACS() {
             <h1 class="containment-title title">Containment class:</h1>
             <div class="desc-container">
               <h1 id="containment-desc" class="desc">
-                containmentclass
+                {containmentClass}
               </h1>
               <div class="icon-container">
                 <img id="containment-icon" class="icon" />
@@ -44,7 +110,7 @@ export default function ACS() {
             <h1 class="secondary-title title">Secondary class:</h1>
             <div class="desc-container">
               <h1 id="secondary-desc" class="desc">
-                secondaryclass
+                {secondaryClass}
               </h1>
               <div class="icon-container">
                 <img id="secondary-icon" class="icon" />
@@ -59,7 +125,7 @@ export default function ACS() {
             <h1 class="disruption-title title">Disruption class:</h1>
             <div class="desc-container">
               <h1 id="disruption-desc" class="desc">
-                disruptionclass
+                {disruptionClass}
               </h1>
               <div class="icon-container">
                 <img id="disruption-icon" class="icon" />
@@ -74,7 +140,7 @@ export default function ACS() {
             <h1 class="risk-title title">Risk class:</h1>
             <div class="desc-container">
               <h1 id="risk-desc" class="desc">
-                riskclass
+                {riskClass}
               </h1>
               <div class="icon-container">
                 <img id="risk-icon" class="icon" />
