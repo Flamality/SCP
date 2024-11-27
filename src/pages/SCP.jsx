@@ -73,7 +73,7 @@ export default function SCP() {
   if (scpData === null) {
     return (
       <div>
-        <DocNavbar />
+        <DocNavbar currentSCP={scp} />
         <p className="loading-text">Loading SCP details...</p>
       </div>
     );
@@ -83,7 +83,7 @@ export default function SCP() {
   if (!scpDetails || !scpDetails.raw_content) {
     return (
       <div>
-        <DocNavbar />
+        <DocNavbar currentSCP={scp} />
         <p className="page-error">Cannot find SCP article.</p>
         <footer>
           <a
@@ -125,7 +125,7 @@ export default function SCP() {
 
   return (
     <div>
-    <DocNavbar />
+    <DocNavbar currentSCP={scp} />
       <ACS
         SCP={scp}
         containmentClass={containmentClass}
