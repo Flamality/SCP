@@ -1,3 +1,10 @@
+.scpCardContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
 /* SCP Card Styles */
 .scp-card-link {
   text-decoration: none;
@@ -7,14 +14,14 @@
 .scp-card {
   border: 2px solid #00000020;
   border-radius: 8px;
-  padding: 16px 25px;
+  padding: 16px 75px 16px 25px;
   background-color: #00000075;
   color: #fff;
   transition: transform 0.2s, box-shadow 0.2s;
   width: fit-content;
 }
 .scp-card-wrapper {
-  margin: 10px 20px;
+  margin: 5px 5px;
   width: fit-content;
 }
 .scp-card-wrapper a {

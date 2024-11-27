@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import Navbar from "../components/navigation/Navbar";
+import DocNavbar from "../components/navigation/DocNavbar";
 import ACS from "../components/ACS/ACS";
 import "./CSS/article.css";
 
@@ -73,7 +73,7 @@ export default function SCP() {
   if (scpData === null) {
     return (
       <div>
-        <Navbar />
+        <DocNavbar />
         <p className="loading-text">Loading SCP details...</p>
       </div>
     );
@@ -83,7 +83,7 @@ export default function SCP() {
   if (!scpDetails || !scpDetails.raw_content) {
     return (
       <div>
-        <Navbar />
+        <DocNavbar />
         <p className="page-error">Cannot find SCP article.</p>
         <footer>
           <a
@@ -125,14 +125,7 @@ export default function SCP() {
 
   return (
     <div>
-      <a
-        href={`/scp/${(Number(scp) + 1).toString().padStart(3, "0")}`}
-        id="prev-article"
-        className="next-article"
-      >
-        {`SCP-${(Number(scp) + 1).toString().padStart(3, "0")}`}
-      </a>
-      <Navbar />
+    <DocNavbar />
       <ACS
         SCP={scp}
         containmentClass={containmentClass}

@@ -33,7 +33,7 @@ export default function SCPCard({ scp, details }) {
               </p>
             )}
           </div>
-          <p className="scp-card-series">Series: {details.series}</p>
+          <p className="scp-card-series">{details.series}</p>
         </div>
       </Link>
     </div>
