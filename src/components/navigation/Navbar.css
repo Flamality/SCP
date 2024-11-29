@@ -54,14 +54,24 @@
   display: none;
 }
 
-.doc-nav ul {
+.docNav ul {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
   padding: 10px 0;
   list-style-type: none;
+  margin-left: 15px;
 }
 
-.doc-nav ul li {
+.docNav ul li {
   margin-right: 10px;
+  color: white;
+}
+.docNav ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 18px;
+  padding: 10px;
+  border: 1px solid #666;
+  border-radius: 5px;
 }
