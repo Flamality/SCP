@@ -32,40 +32,68 @@ export default function SCP() {
     if (scpData) {
       const scpDetails = scpData[`SCP-${scp}`];
       if (scpDetails) {
-        const rawContent = scpDetails?.raw_content;
+        const containmentClasses = [
+          "safe",
+          "euclid",
+          "keter",
+          "neutralized",
+          "pending",
+          "explained",
+          "esoteric",
+        ];
+        const secondaryClasses = [
+          "apollyon",
+          "archon",
+          "cernunnosed",
+          "decommissioned",
+          "hiemal",
+          "tiamat",
+          "ticonderoga",
+          "thaumiel",
+          "uncontained",
+        ];
+        const disruptionClasses = ["dark", "vlam", "keneq", "ekhi", "amida"];
+        const riskClasses = [
+          "notice",
+          "caution",
+          "warning",
+          "danger",
+          "critical",
+        ];
 
-        // Match the various ACS attributes
-        const containmentClassMatch = rawContent.match(
-          /<strong>(?:Object Class:|Containment Class:|Object Class)<\/strong>\s*:?(\s*.*?)<\/p>/
-        );
-        const clearanceLevelMatch = rawContent.match(
-          /<div class="acs-clear"><strong>Clearance Level (\d+):<\/strong>/
-        );
-        const secondaryClassMatch = rawContent.match(
-          /<div class="acs-secondary">\s*<div class="acs-text"><span><strong>Secondary Class:<\/strong><\/span>\s*<span>(.*?)<\/span>/
-        );
-        const disruptionClassMatch = rawContent.match(
-          /<div class="acs-disrupt">\s*<div class="acs-text"><strong>Disruption Class:<\/strong>\s*<span class="disruption-class-number">.*?<\/span>\/(.*?)<\/div>/
-        );
-        const riskClassMatch = rawContent.match(
-          /<div class="acs-risk">\s*<div class="acs-text"><strong>Risk Class:<\/strong>\s*<span class="risk-class-number">.*?<\/span>\/(.*?)<\/div>/
-        );
+        if (scpDetails.tags && scpDetails.tags.length > 0) {
+          // Check for containment class
+          const foundContainmentClass = containmentClasses.find((tag) =>
+            scpDetails.tags.includes(tag)
+          );
+          if (foundContainmentClass) {
+            setContainmentClass(foundContainmentClass);
+          }
 
-        setContainmentClass(
-          containmentClassMatch
-            ? containmentClassMatch[1].trim().toLowerCase()
-            : "none"
-        );
-        setClearanceLevel(
-          clearanceLevelMatch ? clearanceLevelMatch[1] : "none"
-        );
-        setSecondaryClass(
-          secondaryClassMatch ? secondaryClassMatch[1].toLowerCase() : "none"
-        );
-        setDisruptionClass(
-          disruptionClassMatch ? disruptionClassMatch[1].toLowerCase() : "none"
-        );
-        setRiskClass(riskClassMatch ? riskClassMatch[1].toLowerCase() : "none");
+          // Check for secondary class
+          const foundSecondaryClass = secondaryClasses.find((tag) =>
+            scpDetails.tags.includes(tag)
+          );
+          if (foundSecondaryClass) {
+            setSecondaryClass(foundSecondaryClass);
+          }
+
+          // Check for disruption class
+          const foundDisruptionClass = disruptionClasses.find((tag) =>
+            scpDetails.tags.includes(tag)
+          );
+          if (foundDisruptionClass) {
+            setDisruptionClass(foundDisruptionClass);
+          }
+
+          // Check for risk class
+          const foundRiskClass = riskClasses.find((tag) =>
+            scpDetails.tags.includes(tag)
+          );
+          if (foundRiskClass) {
+            setRiskClass(foundRiskClass);
+          }
+        }
       }
     }
   }, [scpData, scp]);
@@ -149,7 +177,7 @@ export default function SCP() {
       ) : (
         <p className="page-error">SCP not found.</p>
       )}
-
+      <p>{scpData[`SCP-${scp}`].tags}</p>
       <footer>
         <a
           href={`/scp/${(Number(scp) - 1).toString().padStart(3, "0")}`}
