@@ -1,51 +1,67 @@
+:root {
+  --card-bg-color: rgba(0, 0, 0, 0.75);
+  --card-border-color: rgba(0, 0, 0, 0.125);
+  --text-color: #fff;
+  --title-color: #ff5252;
+  --highlight-color: #ffaa00;
+  --series-color: #888;
+  --transition-duration: 0.3s;
+}
+
 .scpCardContainer {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
 }
 
-
-/* SCP Card Styles */
 .scp-card-link {
   text-decoration: none;
   color: inherit;
+  display: block;
+  width: 100%;
 }
 
 .scp-card {
-  border: 2px solid #00000020;
+  border: 2px solid var(--card-border-color);
   border-radius: 8px;
-  padding: 16px 75px 16px 25px;
-  background-color: #00000075;
-  color: #fff;
-  transition: transform 0.2s, box-shadow 0.2s;
-  width: fit-content;
+  padding: 16px;
+  background-color: var(--card-bg-color);
+  color: var(--text-color);
+  transition: transform var(--transition-duration),
+    box-shadow var(--transition-duration);
+  max-width: 300px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
-.scp-card-wrapper {
-  margin: 5px 5px;
-  width: fit-content;
-}
-.scp-card-wrapper a {
-  width: 100%;
-  height: 100%;
+
+.scp-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .scp-card-title {
-  font-size: 1.5em;
+  font-size: 1.5rem;
   margin-bottom: 12px;
-  color: #ff5252;
+  color: var(--title-color);
+  line-height: 1.2;
 }
 
 .scp-card-details p {
   margin: 4px 0;
-  font-size: 0.9em;
+  font-size: 0.9rem;
 }
 
 .scp-card-details strong {
-  color: #ffaa00;
+  color: var(--highlight-color);
 }
 
 .scp-card-series {
-  font-size: 0.8em;
+  font-size: 0.8rem;
   margin-top: 12px;
-  color: #888;
+  color: var(--series-color);
+  font-style: italic;
+}
+.scp-card-wrapper {
+  box-sizing: border-box;
 }
